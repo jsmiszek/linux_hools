@@ -1,0 +1,1 @@
+/usr/bin/cc -g   CMakeFiles/serwer.dir/serwer.c.o  -o serwer 

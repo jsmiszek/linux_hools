@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/just/semestr5/linux/linux_hools/serwer/serwer.c
+serwer.h
+/home/just/semestr5/linux/linux_hools/serwer/serwer.h
+stdio.h
+-
+stdlib.h
+-
+sys/types.h
+-
+sys/stat.h
+-
+fcntl.h
+-
+string.h
+-
+
+/home/just/semestr5/linux/linux_hools/serwer/serwer.h
+

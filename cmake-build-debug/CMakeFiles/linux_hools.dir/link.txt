@@ -1,0 +1,1 @@
+/usr/bin/cc -g   CMakeFiles/linux_hools.dir/main.c.o  -o linux_hools 

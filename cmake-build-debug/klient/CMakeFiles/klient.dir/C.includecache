@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/just/semestr5/linux/linux_hools/klient/klient.c
+klient.h
+/home/just/semestr5/linux/linux_hools/klient/klient.h
+stdio.h
+-
+
+/home/just/semestr5/linux/linux_hools/klient/klient.h
+

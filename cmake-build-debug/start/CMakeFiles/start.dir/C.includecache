@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/just/semestr5/linux/linux_hools/start/start.c
+start.h
+/home/just/semestr5/linux/linux_hools/start/start.h
+stdio.h
+-
+stdlib.h
+-
+unistd.h
+-
+
+/home/just/semestr5/linux/linux_hools/start/start.h
+

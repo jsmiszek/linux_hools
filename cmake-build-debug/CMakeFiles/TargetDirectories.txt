@@ -1,0 +1,11 @@
+/home/just/semestr5/linux/linux_hools/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/just/semestr5/linux/linux_hools/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/just/semestr5/linux/linux_hools/cmake-build-debug/start/CMakeFiles/rebuild_cache.dir
+/home/just/semestr5/linux/linux_hools/cmake-build-debug/start/CMakeFiles/start.dir
+/home/just/semestr5/linux/linux_hools/cmake-build-debug/start/CMakeFiles/edit_cache.dir
+/home/just/semestr5/linux/linux_hools/cmake-build-debug/serwer/CMakeFiles/rebuild_cache.dir
+/home/just/semestr5/linux/linux_hools/cmake-build-debug/serwer/CMakeFiles/serwer.dir
+/home/just/semestr5/linux/linux_hools/cmake-build-debug/serwer/CMakeFiles/edit_cache.dir
+/home/just/semestr5/linux/linux_hools/cmake-build-debug/klient/CMakeFiles/rebuild_cache.dir
+/home/just/semestr5/linux/linux_hools/cmake-build-debug/klient/CMakeFiles/klient.dir
+/home/just/semestr5/linux/linux_hools/cmake-build-debug/klient/CMakeFiles/edit_cache.dir
