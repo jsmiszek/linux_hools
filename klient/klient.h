@@ -10,6 +10,8 @@ struct childData{
     int gpid;   //pid grupy procesów
 };
 
+int childNo;
+
 char* getEnvironmentVariable(const char* name);
 
 int openFIfile(char* path);

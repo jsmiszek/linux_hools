@@ -69,6 +69,8 @@ int main()
     {
 //        fifd = openFIfile(FIpath);
 //        fofd = openFOfile(FOpath);
+
+
         manageFIfile(FIpath, ringReg);
         manageFOfile(FOpath, recruitDly);
 

@@ -1,1 +1,1 @@
-/usr/bin/cc -g   CMakeFiles/klient.dir/klient.c.o  -o klient 
+/usr/bin/cc -g   CMakeFiles/klient.dir/klient.c.o CMakeFiles/klient.dir/__/potomek/potomek.c.o CMakeFiles/klient.dir/__/arbiter/arbiter.c.o  -o klient 

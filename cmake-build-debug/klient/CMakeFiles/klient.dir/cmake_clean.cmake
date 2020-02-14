@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/klient.dir/__/arbiter/arbiter.c.o"
+  "CMakeFiles/klient.dir/__/potomek/potomek.c.o"
   "CMakeFiles/klient.dir/klient.c.o"
   "klient"
   "klient.pdb"

@@ -125,6 +125,60 @@ klient/fast:
 	cd /home/just/semestr5/linux/linux_hools/cmake-build-debug && $(MAKE) -f klient/CMakeFiles/klient.dir/build.make klient/CMakeFiles/klient.dir/build
 .PHONY : klient/fast
 
+__/arbiter/arbiter.o: __/arbiter/arbiter.c.o
+
+.PHONY : __/arbiter/arbiter.o
+
+# target to build an object file
+__/arbiter/arbiter.c.o:
+	cd /home/just/semestr5/linux/linux_hools/cmake-build-debug && $(MAKE) -f klient/CMakeFiles/klient.dir/build.make klient/CMakeFiles/klient.dir/__/arbiter/arbiter.c.o
+.PHONY : __/arbiter/arbiter.c.o
+
+__/arbiter/arbiter.i: __/arbiter/arbiter.c.i
+
+.PHONY : __/arbiter/arbiter.i
+
+# target to preprocess a source file
+__/arbiter/arbiter.c.i:
+	cd /home/just/semestr5/linux/linux_hools/cmake-build-debug && $(MAKE) -f klient/CMakeFiles/klient.dir/build.make klient/CMakeFiles/klient.dir/__/arbiter/arbiter.c.i
+.PHONY : __/arbiter/arbiter.c.i
+
+__/arbiter/arbiter.s: __/arbiter/arbiter.c.s
+
+.PHONY : __/arbiter/arbiter.s
+
+# target to generate assembly for a file
+__/arbiter/arbiter.c.s:
+	cd /home/just/semestr5/linux/linux_hools/cmake-build-debug && $(MAKE) -f klient/CMakeFiles/klient.dir/build.make klient/CMakeFiles/klient.dir/__/arbiter/arbiter.c.s
+.PHONY : __/arbiter/arbiter.c.s
+
+__/potomek/potomek.o: __/potomek/potomek.c.o
+
+.PHONY : __/potomek/potomek.o
+
+# target to build an object file
+__/potomek/potomek.c.o:
+	cd /home/just/semestr5/linux/linux_hools/cmake-build-debug && $(MAKE) -f klient/CMakeFiles/klient.dir/build.make klient/CMakeFiles/klient.dir/__/potomek/potomek.c.o
+.PHONY : __/potomek/potomek.c.o
+
+__/potomek/potomek.i: __/potomek/potomek.c.i
+
+.PHONY : __/potomek/potomek.i
+
+# target to preprocess a source file
+__/potomek/potomek.c.i:
+	cd /home/just/semestr5/linux/linux_hools/cmake-build-debug && $(MAKE) -f klient/CMakeFiles/klient.dir/build.make klient/CMakeFiles/klient.dir/__/potomek/potomek.c.i
+.PHONY : __/potomek/potomek.c.i
+
+__/potomek/potomek.s: __/potomek/potomek.c.s
+
+.PHONY : __/potomek/potomek.s
+
+# target to generate assembly for a file
+__/potomek/potomek.c.s:
+	cd /home/just/semestr5/linux/linux_hools/cmake-build-debug && $(MAKE) -f klient/CMakeFiles/klient.dir/build.make klient/CMakeFiles/klient.dir/__/potomek/potomek.c.s
+.PHONY : __/potomek/potomek.c.s
+
 klient.o: klient.c.o
 
 .PHONY : klient.o
@@ -161,6 +215,12 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... klient"
 	@echo "... edit_cache"
+	@echo "... __/arbiter/arbiter.o"
+	@echo "... __/arbiter/arbiter.i"
+	@echo "... __/arbiter/arbiter.s"
+	@echo "... __/potomek/potomek.o"
+	@echo "... __/potomek/potomek.i"
+	@echo "... __/potomek/potomek.s"
 	@echo "... klient.o"
 	@echo "... klient.i"
 	@echo "... klient.s"

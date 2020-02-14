@@ -4,6 +4,8 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
+  "/home/just/semestr5/linux/linux_hools/arbiter/arbiter.c" "/home/just/semestr5/linux/linux_hools/cmake-build-debug/klient/CMakeFiles/klient.dir/__/arbiter/arbiter.c.o"
+  "/home/just/semestr5/linux/linux_hools/potomek/potomek.c" "/home/just/semestr5/linux/linux_hools/cmake-build-debug/klient/CMakeFiles/klient.dir/__/potomek/potomek.c.o"
   "/home/just/semestr5/linux/linux_hools/klient/klient.c" "/home/just/semestr5/linux/linux_hools/cmake-build-debug/klient/CMakeFiles/klient.dir/klient.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")

@@ -58,10 +58,22 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/home/just/semestr5/linux/linux_hools/arbiter/arbiter.c">
+			<Option target="klient"/>
+		</Unit>
+		<Unit filename="/home/just/semestr5/linux/linux_hools/arbiter/arbiter.h">
+			<Option target="klient"/>
+		</Unit>
 		<Unit filename="/home/just/semestr5/linux/linux_hools/klient/klient.c">
 			<Option target="klient"/>
 		</Unit>
 		<Unit filename="/home/just/semestr5/linux/linux_hools/klient/klient.h">
+			<Option target="klient"/>
+		</Unit>
+		<Unit filename="/home/just/semestr5/linux/linux_hools/potomek/potomek.c">
+			<Option target="klient"/>
+		</Unit>
+		<Unit filename="/home/just/semestr5/linux/linux_hools/potomek/potomek.h">
 			<Option target="klient"/>
 		</Unit>
 		<Unit filename="/home/just/semestr5/linux/linux_hools/CMakeLists.txt">

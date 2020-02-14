@@ -35,6 +35,8 @@ int main()
     printf("%s\n", totem_op);
     printf("%s\n", totem_cl);*/
 
+   childNo = 0;
+
 
     char* FOpath = (char*) calloc (20, sizeof(char));
     strcpy(FOpath, FIpath);
@@ -65,7 +67,8 @@ int main()
             child = createChild();
         }
 
-        writeFIfile(fifd, child);
+        if(childNo >= 3)
+            writeFIfile(fifd, child);
 
         //printf("%s\n", buffer);
         nanosleep(&tim, NULL);
@@ -82,7 +85,7 @@ char* getEnvironmentVariable(const char* name)
 
     if(p == 0)
     {
-        printf("Cannot get environment variable!\n");
+        printf("klient - Cannot get environment variable!\n");
         exit(-1);
     }
     return p;
@@ -94,10 +97,10 @@ int openFIfile(char* path)
     int fd;
     while((fd = open(path, O_WRONLY)) == -1)
     {
-        printf("Cannot open fi file\n");
+        printf("klient - Cannot open fi file\n");
         //exit(-1);
     }
-    printf("Opened fi file\n");
+    printf("klient - Opened fi file\n");
     return fd;
 }
 
