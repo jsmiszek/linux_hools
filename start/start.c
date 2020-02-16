@@ -7,7 +7,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-#define CLIENTS 1
+#define CLIENTS 3
 
 int main()
 {

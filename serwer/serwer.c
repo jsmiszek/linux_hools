@@ -31,18 +31,12 @@ int main()
     //char* totem_op = getEnvironmentVariable("TOTEM_OP");
     //char* totem_cl = getEnvironmentVariable("TOTEM_CL");
 
-    long int recruitMAX = strtol(recruit_max, NULL, 10);
+    long int recruitMAX = charToLong(recruit_max);
     printf("%ld \n", recruitMAX);
-
-    long int recruitDly = strtol(recruit_dly, NULL, 10);
-    recruitDly = decyToNano(recruitDly);
+    long int recruitDly = charToLong(recruit_dly);
     printf("%ld\n", recruitDly);
-
-    long int ringReg = strtol(ring_reg, NULL, 10);
-    ringReg = decyToNano(ringReg);
-    printf("%ld \n", recruitMAX);
-
-
+    long int ringReg = charToLong(ring_reg);
+    printf("%ld\n", ringReg);
 
    /* printf("%s\n", FIpath);
     printf("%s\n", recruit_dly);
@@ -64,17 +58,18 @@ int main()
     fofd = openFOfile(FOpath);*/
 
 
+    printf("serwer - przed while\n");
     int i = 1;
     while(i)
     {
 //        fifd = openFIfile(FIpath);
 //        fofd = openFOfile(FOpath);
 
-
+        printf("serwer - petla while\n");
         manageFIfile(FIpath, ringReg);
         manageFOfile(FOpath, recruitDly);
 
-
+        sleep(1);
     }
 
     //closeFIFOfile(fifd);
@@ -105,8 +100,12 @@ char* getEnvironmentVariable(const char* name)
 
 void createFifoFiles(char* camp)
 {
-
-    if( mkfifo(camp, 0666) == -1)
+    int res;
+    if( (res = mkfifo(camp, 0666)) == 17)
+    {
+        printf("FI file exist\n");
+    }
+    else if(res == -1)
     {
         printf("Cannot create FI file\n");
         exit(-1);
@@ -118,7 +117,7 @@ void createFifoFiles(char* camp)
 int openFIfile(char* path)
 {
     int fd;
-    if((fd = open(path, O_RDWR)) == -1)
+    if((fd = open(path, O_RDWR | O_NONBLOCK)) == -1)
         printf("Cannot open FI file\n");
 
     return fd;
@@ -127,7 +126,7 @@ int openFIfile(char* path)
 int openFOfile(char* path)
 {
     int fd;
-    if((fd = open(path, O_WRONLY)) == -1)
+    if((fd = open(path, O_WRONLY | O_NONBLOCK)) == -1)
         printf("Cannot open FI file\n");
 
     return fd;
@@ -139,6 +138,16 @@ void closeFIFOfile(int fd)
     {
         printf("Cannot close file descriptor\n");
     }
+}
+
+
+long int charToLong(char* num)
+{
+    float res = strtof(num, NULL);
+
+    long int result = res * mld /10;
+
+    return result;
 }
 
 char* randomPermissionForRing()
@@ -162,6 +171,7 @@ void randomNanosleep()//nieregularne odtepy czasu na otwieranie pliku FI
 
 void manageFIfile(char* path, long int ringReg)
 {
+    printf("serwer - manageFIfile\n");
     randomNanosleep();
 
     char* buffer = (char*) calloc (13, sizeof(char));
@@ -182,6 +192,7 @@ void manageFIfile(char* path, long int ringReg)
 
 
     int fifd = openFIfile(path);
+    printf("serwer - Opened FI file\n");
     nanosleep(&tim, NULL);
     read(fifd, buffer, 13);
 
@@ -189,13 +200,14 @@ void manageFIfile(char* path, long int ringReg)
     printf("%s\n", buffer);
 
 
-    closeFIFOfile(fifd);
-
+    //closeFIFOfile(fifd);
+    //printf("closed - Closed FI file\n");
 }
 
 
 void manageFOfile(char* path, long int sleepTime)
 {
+    printf("serwer - manageFOfile\n");
     struct timespec tim;
     tim.tv_sec = 0;
     tim.tv_nsec = 0;
@@ -213,13 +225,15 @@ void manageFOfile(char* path, long int sleepTime)
     nanosleep(&tim, NULL);
 
     int fofd = openFOfile(path);
+    printf("serwer - Opened FO file\n");
 
     char* randomByte;
     randomByte = randomPermissionForRing();
 
     write(fofd, randomByte, 1);
 
-    closeFIFOfile(fofd);
+    //closeFIFOfile(fofd);
+    //printf("serwer - closed FO file\n");
 
 }
 

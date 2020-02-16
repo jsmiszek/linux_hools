@@ -19,10 +19,10 @@ int openFOfile(char* path);
 
 void closeFIFOfile(int fd);
 
-void writeFIfile(int fd, struct childData data);
+void writeFIfile(int fd, struct childData* data);
 int readFOfile(int fd);
 
-struct childData createChild();
+struct childData* createChild(int gpid);
 
 
 #endif //LINUX_HOOLS_KLIENT_H

@@ -45,33 +45,47 @@ int main()
 
     int fifd;
     int fofd;
-    fifd = openFIfile(FIpath);
-    fofd = openFOfile(FOpath);
+    //fifd = openFIfile(FIpath);
+    //fofd = openFOfile(FOpath);
+
 
     //char* buffer = (char*) calloc (1, sizeof(char));
 
-    struct childData child = {1, 2};
+    struct childData* child = (struct childData*) calloc (1, sizeof(struct childData));
+    struct childData* helpChild = child;
 
 
     struct timespec tim;
     tim.tv_sec = 0;
-    tim.tv_nsec = 1000000;
+    tim.tv_nsec = 100000000;
 
 
+    printf("klient - przed while\n");
     int i = 1;
     while(i)
     {
+        printf("klient - Jestem w while\n");
+        fifd = openFIfile(FIpath);
+        fofd = openFOfile(FOpath);
 
         if(readFOfile(fofd) == 1)
         {
-            child = createChild();
+            printf("klient - readFOfile\n");
+            if (childNo < 50) {
+                child = createChild(child->gpid);
+                child = (struct childData *) realloc(child, sizeof(struct childData));
+                child++;
+            }
         }
 
         if(childNo >= 3)
-            writeFIfile(fifd, child);
-
+        {
+            writeFIfile(fifd, helpChild);
+            helpChild++;
+        }
+        sleep(1);
         //printf("%s\n", buffer);
-        nanosleep(&tim, NULL);
+        //nanosleep(&tim, NULL);
     }
 
 
@@ -95,11 +109,13 @@ char* getEnvironmentVariable(const char* name)
 int openFIfile(char* path)
 {
     int fd;
-    while((fd = open(path, O_WRONLY)) == -1)
+    while((fd = open(path, O_WRONLY | O_NONBLOCK)) == -1)
     {
         printf("klient - Cannot open fi file\n");
         //exit(-1);
+        sleep(1);
     }
+
     printf("klient - Opened fi file\n");
     return fd;
 }
@@ -108,11 +124,13 @@ int openFIfile(char* path)
 int openFOfile(char* path)
 {
     int fd;
-    while((fd = open(path, O_RDONLY)) == -1)
+    while((fd = open(path, O_RDONLY | O_NONBLOCK)) == -1)
     {
         printf("klient - Cannot open fo file\n");
         //exit(-1);
+        sleep(1);
     }
+
     printf("klient - Opened fo file\n");
     return fd;
 }
@@ -124,17 +142,18 @@ void closeFIFOfile(int fd)
         printf("klient - Cannot close fifo file\n");
         //exit(-1);
     }
+
     printf("klient - Closed fifo file\n");
 }
 
-void writeFIfile(int fd, struct childData data)
+void writeFIfile(int fd, struct childData* data)
 {
     int flag = 0;
     char* pid = (char*) calloc (6, sizeof(char));
     char* gpid = (char*) calloc (6, sizeof(char));
 
-    sprintf(pid, "%d", data.pid);
-    sprintf(gpid, "%d", data.gpid);
+    sprintf(pid, "%d", data->pid);
+    sprintf(gpid, "%d", data->gpid);
 
     char* concaten;
     char newLine[] = "\n";
@@ -167,9 +186,67 @@ int readFOfile(int fd)
 
 }
 
-struct childData createChild()
+struct childData* createChild(int gpid)
 {
     printf("klient - create child \n");
-    struct childData child = {1,2};
-    return child;
+
+    int pid;
+
+    switch(pid = fork())
+    {
+        case -1:
+            printf("klient - cannot create child!");
+            break;
+        case 0:
+            if (execl("../potomek/potomek", "potomek", (char*)NULL) == -1 )
+            {
+                printf("execl error\n");
+                exit(-1);
+            }
+            //break;
+        default: {
+            struct childData *child = (struct childData *) calloc(1, sizeof(struct childData));
+
+            if (childNo == 0) {
+                child->gpid = pid;
+                child->pid = pid;
+            } else {
+                child->gpid = gpid;
+                child->pid = pid;
+            }
+            childNo++;
+
+            return child;
+        }
+    }
+
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

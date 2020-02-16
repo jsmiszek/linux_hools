@@ -17,6 +17,7 @@ void closeFIFOfile(int fd);
 
 char* randomPermissionForRing();
 
+long int charToLong(char* num);
 
 /////////////////////////////////
 
